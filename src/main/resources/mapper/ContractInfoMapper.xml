@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pj.helpful.mapper.ContractInfoMapper">
+  <resultMap id="BaseResultMap" type="com.pj.helpful.bean.ContractInfo">
+    <id column="contract_id" jdbcType="VARCHAR" property="contractId" />
+    <result column="rent_a" jdbcType="VARCHAR" property="rentA" />
+    <result column="rent_b" jdbcType="VARCHAR" property="rentB" />
+    <result column="rent_a_id" jdbcType="VARCHAR" property="rentAId" />
+    <result column="rent_b_id" jdbcType="VARCHAR" property="rentBId" />
+    <result column="rent_a_addr" jdbcType="VARCHAR" property="rentAAddr" />
+    <result column="rent_b_addr" jdbcType="VARCHAR" property="rentBAddr" />
+    <result column="land_addr" jdbcType="VARCHAR" property="landAddr" />
+    <result column="sign_time" jdbcType="TIMESTAMP" property="signTime" />
+    <result column="authenticate_unit" jdbcType="VARCHAR" property="authenticateUnit" />
+    <result column="authenticate_per" jdbcType="VARCHAR" property="authenticatePer" />
+    <result column="authenticate_time" jdbcType="TIMESTAMP" property="authenticateTime" />
+    <result column="land_size" jdbcType="DECIMAL" property="landSize" />
+    <result column="rent_use_way" jdbcType="VARCHAR" property="rentUseWay" />
+    <result column="rent_limit_time" jdbcType="VARCHAR" property="rentLimitTime" />
+    <result column="rent_time_start" jdbcType="TIMESTAMP" property="rentTimeStart" />
+    <result column="rent_time_end" jdbcType="TIMESTAMP" property="rentTimeEnd" />
+    <result column="rent_money" jdbcType="DECIMAL" property="rentMoney" />
+    <result column="pay_money" jdbcType="DECIMAL" property="payMoney" />
+    <result column="pay_by" jdbcType="VARCHAR" property="payBy" />
+    <result column="pay_way" jdbcType="VARCHAR" property="payWay" />
+    <result column="pay_type" jdbcType="VARCHAR" property="payType" />
+    <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
+    <result column="supple_law" jdbcType="VARCHAR" property="suppleLaw" />
+    <result column="break_money" jdbcType="DECIMAL" property="breakMoney" />
+    <result column="dispute_solve" jdbcType="VARCHAR" property="disputeSolve" />
+    <result column="arbitration_committee" jdbcType="VARCHAR" property="arbitrationCommittee" />
+    <result column="goverment_manage" jdbcType="VARCHAR" property="govermentManage" />
+    <result column="contract_type" jdbcType="VARCHAR" property="contractType" />
+    <result column="contract_status" jdbcType="VARCHAR" property="contractStatus" />
+    <result column="land_trans_id" jdbcType="VARCHAR" property="landTransId" />
+    <result column="paied_money_time" jdbcType="TIMESTAMP" property="paiedMoneyTime" />
+    <result column="rent_a_phone" jdbcType="VARCHAR" property="rentAPhone" />
+    <result column="rent_b_phone" jdbcType="VARCHAR" property="rentBPhone" />
+    <result column="town" jdbcType="VARCHAR" property="town" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="groups" jdbcType="VARCHAR" property="groups" />
+    <result column="rent_food" jdbcType="VARCHAR" property="rentFood" />
+    <result column="months_before_destroy" jdbcType="VARCHAR" property="monthsBeforeDestroy" />
+    <result column="jfsj" jdbcType="TIMESTAMP" property="jfsj" />
+    <result column="socil_org_code" jdbcType="VARCHAR" property="socilOrgCode" />
+    <result column="agree_trans" jdbcType="VARCHAR" property="agreeTrans" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    contract_id, rent_a, rent_b, rent_a_id, rent_b_id, rent_a_addr, rent_b_addr, land_addr, 
+    sign_time, authenticate_unit, authenticate_per, authenticate_time, land_size, rent_use_way, 
+    rent_limit_time, rent_time_start, rent_time_end, rent_money, pay_money, pay_by, pay_way, 
+    pay_type, pay_time, supple_law, break_money, dispute_solve, arbitration_committee, 
+    goverment_manage, contract_type, contract_status, land_trans_id, paied_money_time, 
+    rent_a_phone, rent_b_phone, town, country, groups, rent_food, months_before_destroy, 
+    jfsj, socil_org_code, agree_trans
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from contract_info
+    where contract_id = #{contractId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from contract_info
+    where contract_id = #{contractId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.pj.helpful.bean.ContractInfo">
+    insert into contract_info (contract_id, rent_a, rent_b, 
+      rent_a_id, rent_b_id, rent_a_addr, 
+      rent_b_addr, land_addr, sign_time, 
+      authenticate_unit, authenticate_per, authenticate_time, 
+      land_size, rent_use_way, rent_limit_time, 
+      rent_time_start, rent_time_end, rent_money, 
+      pay_money, pay_by, pay_way, 
+      pay_type, pay_time, supple_law, 
+      break_money, dispute_solve, arbitration_committee, 
+      goverment_manage, contract_type, contract_status, 
+      land_trans_id, paied_money_time, rent_a_phone, 
+      rent_b_phone, town, country, 
+      groups, rent_food, months_before_destroy, 
+      jfsj, socil_org_code, agree_trans
+      )
+    values (#{contractId,jdbcType=VARCHAR}, #{rentA,jdbcType=VARCHAR}, #{rentB,jdbcType=VARCHAR}, 
+      #{rentAId,jdbcType=VARCHAR}, #{rentBId,jdbcType=VARCHAR}, #{rentAAddr,jdbcType=VARCHAR}, 
+      #{rentBAddr,jdbcType=VARCHAR}, #{landAddr,jdbcType=VARCHAR}, #{signTime,jdbcType=TIMESTAMP}, 
+      #{authenticateUnit,jdbcType=VARCHAR}, #{authenticatePer,jdbcType=VARCHAR}, #{authenticateTime,jdbcType=TIMESTAMP}, 
+      #{landSize,jdbcType=DECIMAL}, #{rentUseWay,jdbcType=VARCHAR}, #{rentLimitTime,jdbcType=VARCHAR}, 
+      #{rentTimeStart,jdbcType=TIMESTAMP}, #{rentTimeEnd,jdbcType=TIMESTAMP}, #{rentMoney,jdbcType=DECIMAL}, 
+      #{payMoney,jdbcType=DECIMAL}, #{payBy,jdbcType=VARCHAR}, #{payWay,jdbcType=VARCHAR}, 
+      #{payType,jdbcType=VARCHAR}, #{payTime,jdbcType=TIMESTAMP}, #{suppleLaw,jdbcType=VARCHAR}, 
+      #{breakMoney,jdbcType=DECIMAL}, #{disputeSolve,jdbcType=VARCHAR}, #{arbitrationCommittee,jdbcType=VARCHAR}, 
+      #{govermentManage,jdbcType=VARCHAR}, #{contractType,jdbcType=VARCHAR}, #{contractStatus,jdbcType=VARCHAR}, 
+      #{landTransId,jdbcType=VARCHAR}, #{paiedMoneyTime,jdbcType=TIMESTAMP}, #{rentAPhone,jdbcType=VARCHAR}, 
+      #{rentBPhone,jdbcType=VARCHAR}, #{town,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{groups,jdbcType=VARCHAR}, #{rentFood,jdbcType=VARCHAR}, #{monthsBeforeDestroy,jdbcType=VARCHAR}, 
+      #{jfsj,jdbcType=TIMESTAMP}, #{socilOrgCode,jdbcType=VARCHAR}, #{agreeTrans,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.pj.helpful.bean.ContractInfo">
+    insert into contract_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="contractId != null">
+        contract_id,
+      </if>
+      <if test="rentA != null">
+        rent_a,
+      </if>
+      <if test="rentB != null">
+        rent_b,
+      </if>
+      <if test="rentAId != null">
+        rent_a_id,
+      </if>
+      <if test="rentBId != null">
+        rent_b_id,
+      </if>
+      <if test="rentAAddr != null">
+        rent_a_addr,
+      </if>
+      <if test="rentBAddr != null">
+        rent_b_addr,
+      </if>
+      <if test="landAddr != null">
+        land_addr,
+      </if>
+      <if test="signTime != null">
+        sign_time,
+      </if>
+      <if test="authenticateUnit != null">
+        authenticate_unit,
+      </if>
+      <if test="authenticatePer != null">
+        authenticate_per,
+      </if>
+      <if test="authenticateTime != null">
+        authenticate_time,
+      </if>
+      <if test="landSize != null">
+        land_size,
+      </if>
+      <if test="rentUseWay != null">
+        rent_use_way,
+      </if>
+      <if test="rentLimitTime != null">
+        rent_limit_time,
+      </if>
+      <if test="rentTimeStart != null">
+        rent_time_start,
+      </if>
+      <if test="rentTimeEnd != null">
+        rent_time_end,
+      </if>
+      <if test="rentMoney != null">
+        rent_money,
+      </if>
+      <if test="payMoney != null">
+        pay_money,
+      </if>
+      <if test="payBy != null">
+        pay_by,
+      </if>
+      <if test="payWay != null">
+        pay_way,
+      </if>
+      <if test="payType != null">
+        pay_type,
+      </if>
+      <if test="payTime != null">
+        pay_time,
+      </if>
+      <if test="suppleLaw != null">
+        supple_law,
+      </if>
+      <if test="breakMoney != null">
+        break_money,
+      </if>
+      <if test="disputeSolve != null">
+        dispute_solve,
+      </if>
+      <if test="arbitrationCommittee != null">
+        arbitration_committee,
+      </if>
+      <if test="govermentManage != null">
+        goverment_manage,
+      </if>
+      <if test="contractType != null">
+        contract_type,
+      </if>
+      <if test="contractStatus != null">
+        contract_status,
+      </if>
+      <if test="landTransId != null">
+        land_trans_id,
+      </if>
+      <if test="paiedMoneyTime != null">
+        paied_money_time,
+      </if>
+      <if test="rentAPhone != null">
+        rent_a_phone,
+      </if>
+      <if test="rentBPhone != null">
+        rent_b_phone,
+      </if>
+      <if test="town != null">
+        town,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="groups != null">
+        groups,
+      </if>
+      <if test="rentFood != null">
+        rent_food,
+      </if>
+      <if test="monthsBeforeDestroy != null">
+        months_before_destroy,
+      </if>
+      <if test="jfsj != null">
+        jfsj,
+      </if>
+      <if test="socilOrgCode != null">
+        socil_org_code,
+      </if>
+      <if test="agreeTrans != null">
+        agree_trans,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="contractId != null">
+        #{contractId,jdbcType=VARCHAR},
+      </if>
+      <if test="rentA != null">
+        #{rentA,jdbcType=VARCHAR},
+      </if>
+      <if test="rentB != null">
+        #{rentB,jdbcType=VARCHAR},
+      </if>
+      <if test="rentAId != null">
+        #{rentAId,jdbcType=VARCHAR},
+      </if>
+      <if test="rentBId != null">
+        #{rentBId,jdbcType=VARCHAR},
+      </if>
+      <if test="rentAAddr != null">
+        #{rentAAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="rentBAddr != null">
+        #{rentBAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="landAddr != null">
+        #{landAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="signTime != null">
+        #{signTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="authenticateUnit != null">
+        #{authenticateUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="authenticatePer != null">
+        #{authenticatePer,jdbcType=VARCHAR},
+      </if>
+      <if test="authenticateTime != null">
+        #{authenticateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="landSize != null">
+        #{landSize,jdbcType=DECIMAL},
+      </if>
+      <if test="rentUseWay != null">
+        #{rentUseWay,jdbcType=VARCHAR},
+      </if>
+      <if test="rentLimitTime != null">
+        #{rentLimitTime,jdbcType=VARCHAR},
+      </if>
+      <if test="rentTimeStart != null">
+        #{rentTimeStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rentTimeEnd != null">
+        #{rentTimeEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rentMoney != null">
+        #{rentMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="payMoney != null">
+        #{payMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="payBy != null">
+        #{payBy,jdbcType=VARCHAR},
+      </if>
+      <if test="payWay != null">
+        #{payWay,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null">
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="suppleLaw != null">
+        #{suppleLaw,jdbcType=VARCHAR},
+      </if>
+      <if test="breakMoney != null">
+        #{breakMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="disputeSolve != null">
+        #{disputeSolve,jdbcType=VARCHAR},
+      </if>
+      <if test="arbitrationCommittee != null">
+        #{arbitrationCommittee,jdbcType=VARCHAR},
+      </if>
+      <if test="govermentManage != null">
+        #{govermentManage,jdbcType=VARCHAR},
+      </if>
+      <if test="contractType != null">
+        #{contractType,jdbcType=VARCHAR},
+      </if>
+      <if test="contractStatus != null">
+        #{contractStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="landTransId != null">
+        #{landTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="paiedMoneyTime != null">
+        #{paiedMoneyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rentAPhone != null">
+        #{rentAPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="rentBPhone != null">
+        #{rentBPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="town != null">
+        #{town,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="groups != null">
+        #{groups,jdbcType=VARCHAR},
+      </if>
+      <if test="rentFood != null">
+        #{rentFood,jdbcType=VARCHAR},
+      </if>
+      <if test="monthsBeforeDestroy != null">
+        #{monthsBeforeDestroy,jdbcType=VARCHAR},
+      </if>
+      <if test="jfsj != null">
+        #{jfsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="socilOrgCode != null">
+        #{socilOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="agreeTrans != null">
+        #{agreeTrans,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pj.helpful.bean.ContractInfo">
+    update contract_info
+    <set>
+      <if test="rentA != null">
+        rent_a = #{rentA,jdbcType=VARCHAR},
+      </if>
+      <if test="rentB != null">
+        rent_b = #{rentB,jdbcType=VARCHAR},
+      </if>
+      <if test="rentAId != null">
+        rent_a_id = #{rentAId,jdbcType=VARCHAR},
+      </if>
+      <if test="rentBId != null">
+        rent_b_id = #{rentBId,jdbcType=VARCHAR},
+      </if>
+      <if test="rentAAddr != null">
+        rent_a_addr = #{rentAAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="rentBAddr != null">
+        rent_b_addr = #{rentBAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="landAddr != null">
+        land_addr = #{landAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="signTime != null">
+        sign_time = #{signTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="authenticateUnit != null">
+        authenticate_unit = #{authenticateUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="authenticatePer != null">
+        authenticate_per = #{authenticatePer,jdbcType=VARCHAR},
+      </if>
+      <if test="authenticateTime != null">
+        authenticate_time = #{authenticateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="landSize != null">
+        land_size = #{landSize,jdbcType=DECIMAL},
+      </if>
+      <if test="rentUseWay != null">
+        rent_use_way = #{rentUseWay,jdbcType=VARCHAR},
+      </if>
+      <if test="rentLimitTime != null">
+        rent_limit_time = #{rentLimitTime,jdbcType=VARCHAR},
+      </if>
+      <if test="rentTimeStart != null">
+        rent_time_start = #{rentTimeStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rentTimeEnd != null">
+        rent_time_end = #{rentTimeEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rentMoney != null">
+        rent_money = #{rentMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="payMoney != null">
+        pay_money = #{payMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="payBy != null">
+        pay_by = #{payBy,jdbcType=VARCHAR},
+      </if>
+      <if test="payWay != null">
+        pay_way = #{payWay,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null">
+        pay_type = #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null">
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="suppleLaw != null">
+        supple_law = #{suppleLaw,jdbcType=VARCHAR},
+      </if>
+      <if test="breakMoney != null">
+        break_money = #{breakMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="disputeSolve != null">
+        dispute_solve = #{disputeSolve,jdbcType=VARCHAR},
+      </if>
+      <if test="arbitrationCommittee != null">
+        arbitration_committee = #{arbitrationCommittee,jdbcType=VARCHAR},
+      </if>
+      <if test="govermentManage != null">
+        goverment_manage = #{govermentManage,jdbcType=VARCHAR},
+      </if>
+      <if test="contractType != null">
+        contract_type = #{contractType,jdbcType=VARCHAR},
+      </if>
+      <if test="contractStatus != null">
+        contract_status = #{contractStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="landTransId != null">
+        land_trans_id = #{landTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="paiedMoneyTime != null">
+        paied_money_time = #{paiedMoneyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rentAPhone != null">
+        rent_a_phone = #{rentAPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="rentBPhone != null">
+        rent_b_phone = #{rentBPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="town != null">
+        town = #{town,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="groups != null">
+        groups = #{groups,jdbcType=VARCHAR},
+      </if>
+      <if test="rentFood != null">
+        rent_food = #{rentFood,jdbcType=VARCHAR},
+      </if>
+      <if test="monthsBeforeDestroy != null">
+        months_before_destroy = #{monthsBeforeDestroy,jdbcType=VARCHAR},
+      </if>
+      <if test="jfsj != null">
+        jfsj = #{jfsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="socilOrgCode != null">
+        socil_org_code = #{socilOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="agreeTrans != null">
+        agree_trans = #{agreeTrans,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where contract_id = #{contractId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pj.helpful.bean.ContractInfo">
+    update contract_info
+    set rent_a = #{rentA,jdbcType=VARCHAR},
+      rent_b = #{rentB,jdbcType=VARCHAR},
+      rent_a_id = #{rentAId,jdbcType=VARCHAR},
+      rent_b_id = #{rentBId,jdbcType=VARCHAR},
+      rent_a_addr = #{rentAAddr,jdbcType=VARCHAR},
+      rent_b_addr = #{rentBAddr,jdbcType=VARCHAR},
+      land_addr = #{landAddr,jdbcType=VARCHAR},
+      sign_time = #{signTime,jdbcType=TIMESTAMP},
+      authenticate_unit = #{authenticateUnit,jdbcType=VARCHAR},
+      authenticate_per = #{authenticatePer,jdbcType=VARCHAR},
+      authenticate_time = #{authenticateTime,jdbcType=TIMESTAMP},
+      land_size = #{landSize,jdbcType=DECIMAL},
+      rent_use_way = #{rentUseWay,jdbcType=VARCHAR},
+      rent_limit_time = #{rentLimitTime,jdbcType=VARCHAR},
+      rent_time_start = #{rentTimeStart,jdbcType=TIMESTAMP},
+      rent_time_end = #{rentTimeEnd,jdbcType=TIMESTAMP},
+      rent_money = #{rentMoney,jdbcType=DECIMAL},
+      pay_money = #{payMoney,jdbcType=DECIMAL},
+      pay_by = #{payBy,jdbcType=VARCHAR},
+      pay_way = #{payWay,jdbcType=VARCHAR},
+      pay_type = #{payType,jdbcType=VARCHAR},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      supple_law = #{suppleLaw,jdbcType=VARCHAR},
+      break_money = #{breakMoney,jdbcType=DECIMAL},
+      dispute_solve = #{disputeSolve,jdbcType=VARCHAR},
+      arbitration_committee = #{arbitrationCommittee,jdbcType=VARCHAR},
+      goverment_manage = #{govermentManage,jdbcType=VARCHAR},
+      contract_type = #{contractType,jdbcType=VARCHAR},
+      contract_status = #{contractStatus,jdbcType=VARCHAR},
+      land_trans_id = #{landTransId,jdbcType=VARCHAR},
+      paied_money_time = #{paiedMoneyTime,jdbcType=TIMESTAMP},
+      rent_a_phone = #{rentAPhone,jdbcType=VARCHAR},
+      rent_b_phone = #{rentBPhone,jdbcType=VARCHAR},
+      town = #{town,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      groups = #{groups,jdbcType=VARCHAR},
+      rent_food = #{rentFood,jdbcType=VARCHAR},
+      months_before_destroy = #{monthsBeforeDestroy,jdbcType=VARCHAR},
+      jfsj = #{jfsj,jdbcType=TIMESTAMP},
+      socil_org_code = #{socilOrgCode,jdbcType=VARCHAR},
+      agree_trans = #{agreeTrans,jdbcType=VARCHAR}
+    where contract_id = #{contractId,jdbcType=VARCHAR}
+  </update>
+</mapper>
